@@ -58,15 +58,35 @@ imagen = [100, 98, -3, 0, 56, 86, 7, 300, 255, 256, 35, -621, -1, 50, 126, 201]
 # Recorra la lista y verifique que los valores de los pixeles estan en el rango esperado [0, 255]. Lleve conteo de los valores
 # modificados
 
-... # Borre esta línea y escriba su código
+modificados = 0
+for i in range(len(imagen)):
+    if imagen[i]<0:
+        imagen[i]=0
+        modificados+=1
+    elif imagen [i]>255:
+        imagen [i]=255
+        modificados+=1
+    
 
 
 #########################################################################################################################
-## PARTE 3: Pedir nuevo tamaño deseado 
+## PARTE 3: Pedir nuevo tamaño deseado  
 
 # Pídale al usuario ingresar el tamaño que desea de la nueva imagen. Tome en cuenta los casos descritos en el enunciado.
 
-... # Borre esta línea y escriba su código
+n=len(imagen)
+while True:
+    try:
+        n_comp= int(input(f"Ingrese el tamaño de la imagen comprimida (0 a {n}): "))
+    except ValueError:
+        print("Debe ser un número entero")
+        continue
+    if n_comp <0:
+        print("Debe ser un número positivo")
+    elif n_comp > n:
+        print(f" El tamaño no puede ser mayor a {n}")
+    else:
+        break
 
 
 
@@ -75,14 +95,25 @@ imagen = [100, 98, -3, 0, 56, 86, 7, 300, 255, 256, 35, -621, -1, 50, 126, 201]
 
 # Calcule los valores de la imagen comprimida en función a la imagen original y el tamaño deseado (ingresado por el usuario)
 
-... # Borre esta línea y escriba su código
-
-
-
+if n_comp==0:
+    imagen_comprimida = []
+else:
+    k=n-n_comp+1
+    imagen_comprimida=[]
+    
+    for i in range (n_comp):
+        bloque=imagen[i:i+k]
+        promedio= sum(bloque)/k
+        imagen_comprimida.append(int(promedio))
 #########################################################################################################################
 ## PARTE 5: Mostrar resultados  
 
 # Imprima en pantalla el resultado de la compresión, junto con la cantidad de pixeles no validos de la imagen original
 
+print(f"\nImagen original verificada: {imagen}")
+print(f"Imagen comprimida ({n_comp} pixeles):{imagen_comprimida}")
+print(F"Pixeles modificados en la imagen original: {modificados}")
 
-... # Borre esta línea y escriba su código
+
+
+

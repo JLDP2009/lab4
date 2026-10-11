@@ -10,18 +10,21 @@ Complete las funciones para que al ejecutar el programa, se muestre el menú y s
     - Si se ingresa cualquier otra opcion, se imprime "Opción inválida. Intente de nuevo."
 
 """
+PI= 3.14
+
+
 
 def area_circulo(radio):
-    # TODO: calcular el área (π * r^2) y mostrar resultado
-    pass # borrar línea y escribir la solución
+    area = PI * (radio ** 2)
+    print(f" El area del circulo es: {area}")
 
-def area_triangulo(): 
-    # TODO: Calcular el área ((base * altura) / 2) y mostrar resultado
-    pass # borrar línea y escribir la solución
+def area_triangulo(base, altura): 
+    area= (base * altura )/2
+    print(f"El area del triangulo es: {area}")
 
 def perimetro_rectangulo(base, altura):
-    # TODO: Calcular el perímetro (2 * (base + altura)) y mostrar resultado
-    pass # borrar línea y escribir la solución
+    perímetro= (2 * (base + altura))
+    print(f" El perímetro del rectangulo es : {perímetro}")
 
 def menu():
     activo = True
@@ -39,13 +42,13 @@ def menu():
                 x = int(input("Ingrese el radio del círculo: "))
                 area_circulo(x)
             case "2":
-                x = int(input("Ingrese la base del rectángulo: "))
-                y = int(input("Ingrese la altura del rectángulo: "))
+                x = int(input("Ingrese la base del triángulo: "))
+                y = int(input("Ingrese la altura del triángulo: "))
                 area_triangulo(x, y)
             case "3":
                 x = int(input("Ingrese la base del rectángulo: "))
                 y = int(input("Ingrese la altura del rectángulo: "))
-                perimetro_rectangulo()
+                perimetro_rectangulo(x,y)
             case "4":
                 print("Saliendo...")
                 activo = False
